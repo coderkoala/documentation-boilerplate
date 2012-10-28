@@ -1,0 +1,65 @@
+<!DOCTYPE html>
+<!--[if lt IE 7]>      <html class="no-js lt-ie9 lt-ie8 lt-ie7"> <![endif]-->
+<!--[if IE 7]>         <html class="no-js lt-ie9 lt-ie8"> <![endif]-->
+<!--[if IE 8]>         <html class="no-js lt-ie9"> <![endif]-->
+<!--[if gt IE 8]><!--> <html class="no-js"> <!--<![endif]-->
+    <head>
+        <meta charset="utf-8">
+        <meta http-equiv="X-UA-Compatible" content="IE=edge,chrome=1">
+        <title>Documentation Title</title>
+        <meta name="description" content="">
+        <meta name="viewport" content="width=device-width, initial-scale=1.0">
+
+        <link rel="stylesheet" href="css/bootstrap.min.css">
+        <link rel="stylesheet" href="css/bootstrap-responsive.min.css">
+        <link rel="stylesheet" href="css/documentation.css">
+
+        <script src="js/modernizr-2.6.2.min.js"></script>
+    </head>
+
+    <body>
+
+        <!-- Add sticky nav if content is long -->
+        <!-- <div class="navbar navbar-fixed-top navbar-inverse">
+            <div class="navbar-inner">
+                <a class="brand" href="#">Documentation Title</a>
+                <ul class="nav">
+                    <li class="active"><a href="#introduction">Introduction</a></li>
+                    <li><a href="#requirements">Requirements</a></li>
+                </ul>
+            </div>
+        </div> -->
+        <div id="documentation">
+            <div id="introduction" class="main-container container-fluid">
+                <header id="Header">
+                    <h1><span class="highlight">Highlighted Text</span> with Title of Doc</h1>
+                    <h2><span class="double-underline">Introduction</span></h2>
+                </header>
+                <p class="lead">This is the leading introduction for the documentation. It should not be longer than two to three sentances.</p>
+                <p>This is the continuation of the documentation if there needs to be a more detailed explanation.</p>
+            </div>
+
+            <div id="references" class="main-container container-fluid">
+                <header>
+                    <h2><span class="double-underline">References</span></h2>
+                </header>
+                <ul>
+                    <li>Reference item one</li>
+                    <li>Reference item two</li>
+                </ul>
+            </div>
+
+            <footer id="footer" class="main-container container-fluid">
+                <p class="meta"><small>Prepared for: [NAME] | Prepared by: [NAME] | Version: 0.1 | Revision date: [DATE] | &copy; 2012 [COMPANY]</small></p>
+            </footer>
+        </div>
+
+        <script src="//ajax.googleapis.com/ajax/libs/jquery/1.8.2/jquery.min.js"></script>
+        <script>window.jQuery || document.write('<script src="js/jquery-1.8.2.min.js"><\/script>')</script>
+        <script src="js/bootstrap.min.js"></script>
+        <script src="js/handlebars-1.0.rc.1.js"></script>
+        <script src="js/documentation.min.js"></script>
+        <script>var documentation = new Documentation.core();</script>
+
+    </body>
+</html>
