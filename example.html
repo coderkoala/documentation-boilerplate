@@ -10,9 +10,13 @@
         <meta name="description" content="">
         <meta name="viewport" content="width=device-width, initial-scale=1.0">
 
+        <meta name="robots" content="nofollow">
+        <meta name="robots" content="noindex">
+
         <link rel="stylesheet" href="css/bootstrap.min.css">
         <link rel="stylesheet" href="css/bootstrap-responsive.min.css">
-        <link rel="stylesheet" href="css/main.less.css">
+        <link rel="stylesheet" href="css/documentation.css">
+
         <script src="js/modernizr-2.6.2.min.js"></script>
     </head>
 
@@ -98,7 +102,7 @@
         <script>window.jQuery || document.write('<script src="js/jquery-1.8.2.min.js"><\/script>')</script>
         <script src="js/bootstrap.min.js"></script>
         <script src="js/handlebars-1.0.rc.1.js"></script>
-        <script src="js/copy.js"></script>
+        <script src="js/view.js"></script>
         <script id="research-table" type="text/x-handlebars-template">
             {{#each research}}
                 <tr>
@@ -122,8 +126,8 @@
                 </li>
             {{/each}}
         </script>
-        <script src="js/documentation.js"></script>
-        <script>var documentation = new Documentation.core();</script>
+        <script src="js/documentation.min.js"></script>
+        <script>$(function() { var documentation = new Documentation.core(); });</script>
 
     </body>
 </html>

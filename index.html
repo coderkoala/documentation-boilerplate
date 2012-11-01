@@ -10,6 +10,9 @@
         <meta name="description" content="">
         <meta name="viewport" content="width=device-width, initial-scale=1.0">
 
+        <meta name="robots" content="nofollow">
+        <meta name="robots" content="noindex">
+
         <link rel="stylesheet" href="css/bootstrap.min.css">
         <link rel="stylesheet" href="css/bootstrap-responsive.min.css">
         <link rel="stylesheet" href="css/documentation.css">
@@ -59,7 +62,7 @@
         <script src="js/bootstrap.min.js"></script>
         <script src="js/handlebars-1.0.rc.1.js"></script>
         <script src="js/documentation.min.js"></script>
-        <script>var documentation = new Documentation.core();</script>
+        <script>$(function() { var documentation = new Documentation.core(); });</script>
 
     </body>
 </html>
