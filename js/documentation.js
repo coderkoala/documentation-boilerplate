@@ -74,9 +74,6 @@
         $('p').first().attr('class', 'lead');
         $('h1').attr('id', '').prependTo('header:first');
 
-        var highlight_text = $('h1 code').text();
-        $('h1').find('code').replaceWith('<span class="highlight">'+highlight_text+'</span>');
-
         $('table').addClass('table table-bordered table-striped').wrap('<div class="large-container container-fluid" />');
 
         $('pre').addClass('prettyprint linenums');

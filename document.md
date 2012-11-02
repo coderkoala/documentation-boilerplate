@@ -1,4 +1,4 @@
-`Highlighted Text` with Title of Doc
+_Highlighted Text_ with Title of Doc
 ====================================
 
 ## Introduction
