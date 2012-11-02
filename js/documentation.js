@@ -8,6 +8,13 @@
 
     var Core = Documentation.core = function(options) {
         var defaults = {
+            el: {
+                documentation: '#documentation',
+                loading: '#loading'
+            },
+            copy: {
+                warning_file_protocol: 'Warning: document.md cannot be loaded through the `file:` protocol. Browse the file with a webserver'
+            }
         };
 
         this.config = $.extend(true, defaults, options || { });
@@ -16,31 +23,31 @@
     };
 
     Core.prototype._init = function() {
-        // Bring in content in a table - requires handlebars and helps manage content for mobile
-        // this._fillContent('table');
-        // this._fillContent('mobile');
+        this._registerInstanceVariables();
 
         // Load markdown text
-        $('#documentation').load('document.md', $.proxy(this._processMarkdown, this));
+        if (global.location.protocol !== 'file:') {
+            this.$documentation.load('document.md', $.proxy(this._processMarkdown, this));
+        } else {
+            this.$loading.text(this.config.copy.warning_file_protocol);
+        }
 
         // Open all links within Documentation in a new window
-        $('#documentation').on('click', 'a', $.proxy(this._targetBlank, this));
+        this.$documentation.on('click', 'a', $.proxy(this.targetBlank, this));
     };
 
-    Core.prototype._targetBlank = function(evt) {
-        evt.preventDefault();
+    Core.prototype._registerInstanceVariables = function() {
+        var config = this.config
 
-        var url = $(evt.currentTarget).attr('href');
-
-        global.open(url);
+        this.$documentation = $(config.el.documentation);
+        this.$loading = $(config.el.loading);
     };
 
-    Core.prototype._processMarkdown = function() {
-        var md = $('#documentation').text(),
-            converter = new Showdown.converter(),
-            html = converter.makeHtml(md);
+    Core.prototype._processMarkdown = function(data) {
+        var converter = new Showdown.converter(),
+            html = converter.makeHtml(data);
 
-        $('#documentation').html(html);
+        this.$documentation.html(html);
 
         $('h2').each(function(i, obj){
             var $set = $(),
@@ -51,7 +58,7 @@
             $set.push(obj);
 
             while (next) {
-                if (!$(next).is('h2')) {
+                if (!$(next).is('h2') && !$(next).is('table')) {
                     $set.push(next);
                     next = next.nextSibling;
                 } else break;
@@ -65,23 +72,39 @@
 
         $('h2').wrap('<header />');
         $('p').first().attr('class', 'lead');
-        $('h1').attr('id', '').prependTo('#introduction header');
+        $('h1').attr('id', '').prependTo('header:first');
 
         var highlight_text = $('h1 code').text();
         $('h1').find('code').replaceWith('<span class="highlight">'+highlight_text+'</span>');
+
+        $('table').addClass('table table-bordered table-striped').wrap('<div class="large-container container-fluid" />');
+
+        $('pre').addClass('prettyprint linenums');
+        global.prettyPrint && prettyPrint();
+
+        // Generate meta HTML as footer
+        this.fillContent({
+            template_source: '#tmpl-footer',
+            append_to: this.config.el.documentation,
+            context: copy // `copy` can be found in view.js
+        });
     };
 
-    Core.prototype._fillContent = function(type) {
-        // Source should be in <script> in html
-        var source = $('#content-'+type).html(),
-            template = Handlebars.compile(source),
-            research_results = template(copy);
+    Core.prototype.targetBlank = function(evt) {
+        evt.preventDefault();
 
-        if (type === 'table') {
-            $('#[semantic-id]-table').find('tbody').append(research_results);
-        } else {
-            $('#[semantic-id]-list').append(research_results);
-        }
+        var url = $(evt.currentTarget).attr('href');
+
+        global.open(url);
+    };
+
+    Core.prototype.fillContent = function(settings) {
+        // Source should be in <script> in html
+        var template_source = $(settings.template_source).html(),
+            template = Handlebars.compile(template_source),
+            html = template(settings.context);
+
+        $(settings.append_to).append(html);
     };
 
 }).call(this);

@@ -32,6 +32,11 @@ body {
 .navbar-fixed-top .navbar-inner {
   padding: 0 20px;
 }
+#loading {
+  padding: 20px 0;
+  text-align: center;
+  text-transform: uppercase;
+}
 #documentation {
   background: #fff;
   max-width: 1100px;
@@ -92,7 +97,7 @@ h3 {
   line-height: 26px;
 }
 ol {
-  padding: 0 0 0 20px;
+  margin: 0 0 0 20px;
 }
 .note {
   background: #fffcdf;

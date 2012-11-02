@@ -15,6 +15,8 @@
 
         <link rel="stylesheet" href="css/bootstrap.min.css">
         <link rel="stylesheet" href="css/bootstrap-responsive.min.css">
+        <link rel="stylesheet" href="lib/prettify/prettify.css">
+
         <link rel="stylesheet" href="css/documentation.css">
 
         <script src="lib/modernizr-2.6.2.min.js"></script>
@@ -33,35 +35,23 @@
             </div>
         </div> -->
         <div id="documentation">
-            <div id="introduction" class="main-container container-fluid">
-                <header id="Header">
-                    <h1><span class="highlight">Highlighted Text</span> with Title of Doc</h1>
-                    <h2><span class="double-underline">Introduction</span></h2>
-                </header>
-                <p class="lead">This is the leading introduction for the documentation. It should not be longer than two to three sentances.</p>
-                <p>This is the continuation of the documentation if there needs to be a more detailed explanation.</p>
-            </div>
-
-            <div id="references" class="main-container container-fluid">
-                <header>
-                    <h2><span class="double-underline">References</span></h2>
-                </header>
-                <ul>
-                    <li>Reference item one</li>
-                    <li>Reference item two</li>
-                </ul>
-            </div>
-
-            <footer id="footer" class="main-container container-fluid">
-                <p class="meta"><small>Prepared for: [NAME] | Prepared by: [NAME] | Version: 0.1 | Revision date: [DATE] | &copy; 2012 [COMPANY]</small></p>
-            </footer>
+            <div id="loading" class="large-container container-fluid">Loading...</div>
         </div>
 
         <script src="//ajax.googleapis.com/ajax/libs/jquery/1.8.2/jquery.min.js"></script>
         <script>window.jQuery || document.write('<script src="lib/jquery-1.8.2.min.js"><\/script>')</script>
+        <script src="lib/prettify/prettify.js"></script>
         <script src="lib/bootstrap.min.js"></script>
         <script src="lib/handlebars-1.0.rc.1.js"></script>
         <script src="lib/showdown.js"></script>
+        <script src="js/view.js"></script>
+
+        <script id="tmpl-footer" type="text/x-handlebars-template">
+            <footer id="footer" class="main-container container-fluid">
+            <p class="meta"><small>Prepared for: {{ prepared_for }} | Prepared by: {{ prepared_by }} | Version: {{ version }} | Revision date: {{ revision_date }} | &copy; 2012 {{ company }}</small></p>
+            </footer>
+        </script>
+
         <script src="js/documentation.js"></script>
         <script>$(function() { var documentation = new Documentation.core(); });</script>
 
