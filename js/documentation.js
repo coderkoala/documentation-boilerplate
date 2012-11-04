@@ -91,6 +91,13 @@
         });
 
         this._processTables();
+        this._cleanUpMarkdown();
+    };
+
+    Core.prototype._cleanUpMarkdown = function() {
+        this.$documentation.find('> p, > ul, > ol, > blockquote, > h3, > h4, > h5, > h6').each(function(i, obj) {
+            $(obj).wrap('<div class="main-container container-fluid" />');
+        });
     };
 
     Core.prototype._processTables = function() {
@@ -101,6 +108,13 @@
                 labels = [],
                 entries = [],
                 entry = {};
+
+            var next = obj.nextSibling;
+
+            console.log($(obj.nextSibling));
+            if ($(obj.nextSibling).is('p')) {
+                $(obj.nextSibling).wrap('<div class="main-container container-fluid />');
+            }
 
             $obj.addClass('table table-bordered table-striped table-id-'+table_id)
                 .wrap('<div class="large-container container-fluid" />');
