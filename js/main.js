@@ -2,25 +2,30 @@ requirejs.config({
     shim: {
         'documentation': {
             deps: [
-                '../lib/jquery-1.8.2.min',
-                '../lib/bootstrap.min',
-                '../lib/prettify/prettify',
-                '../lib/handlebars-1.0.rc.1',
-                '../lib/showdown',
+                '../lib/jquery/jquery-1.8.2.min',
+                '../lib/bootstrap/js/bootstrap.min',
+                '../lib/prettify/js/prettify',
+                '../lib/handlebars/handlebars-1.0.rc.1',
+                '../lib/showdown/showdown',
                 'view'
             ],
             exports: 'Documentation'
+        },
+        '../lib/bootstrap.min': {
+            deps: [
+                '../lib/jquery/jquery-1.8.2.min'
+            ]
         }
     }
 });
 
 require([
     'documentation',
-    '../lib/jquery-1.8.2.min',
-    '../lib/prettify/prettify',
-    '../lib/bootstrap.min',
-    '../lib/handlebars-1.0.rc.1',
-    '../lib/showdown',
+    '../lib/jquery/jquery-1.8.2.min',
+    '../lib/prettify/js/prettify',
+    '../lib/bootstrap/js/bootstrap.min',
+    '../lib/handlebars/handlebars-1.0.rc.1',
+    '../lib/showdown/showdown',
     'view'
 ], function() {
 
@@ -29,7 +34,7 @@ require([
     var $       = global.$;
 
     $(function() {
-        var documentation = new Documentation.core(); 
+        var documentation = new Documentation.core();
     });
 
 });

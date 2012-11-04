@@ -85,6 +85,35 @@
             append_to: this.config.el.documentation,
             context: copy // `copy` can be found in view.js
         });
+
+        this._processTables();
+    };
+
+    Core.prototype._processTables = function() {
+        $('table').each(function(i, obj) {
+            var $obj = $(obj),
+                $th = $obj.find('thead').find('th'),
+                $tr = $obj.find('tbody').find('tr'),
+                labels = [],
+                entries = [];
+
+            $th.each(function(i, obj) {
+                labels[i] = $(obj).text();
+            });
+
+            $tr.each(function(row, obj) {
+                var entry = [];
+                entries[row] = {};
+
+                $(obj).find('td').each(function(i, obj) {
+                    entry[i] = $(obj).text();
+                });
+
+                $.each(labels, function(i, val) {
+                    console.log(val);
+                });
+            });
+        });
     };
 
     Core.prototype.targetBlank = function(evt) {

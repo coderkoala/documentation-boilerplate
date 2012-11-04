@@ -23,6 +23,11 @@ This is the continuation of the documentation if there needs to be a more detail
             <td>Value 2</td>
             <td>Value 3</td>
         </tr>
+        <tr>
+            <td>Value 1b</td>
+            <td>Value 2b</td>
+            <td>Value 3b</td>
+        </tr>
     </tbody>
 </table>
 

@@ -1,3 +1,8 @@
+@import "../lib/bootstrap/css/bootstrap.min.css";
+
+@import "../lib/bootstrap/css/bootstrap-responsive.min.css";
+
+@import "../lib/prettify/css/prettify.css";
 .clearfix {
   *zoom: 1;
 }
