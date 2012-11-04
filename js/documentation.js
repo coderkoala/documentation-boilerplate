@@ -8,12 +8,17 @@
 
     var Core = Documentation.core = function(options) {
         var defaults = {
+            // Path to the markdown document relative to the index file
+            md_src: 'document.md',
             el: {
                 documentation: '#documentation',
                 loading: '#loading'
             },
+            templates: {
+                footer: '#tmpl-footer'
+            },
             copy: {
-                warning_file_protocol: 'Warning: document.md cannot be loaded through the `file:` protocol. Browse the file with a webserver'
+                warning_file_protocol: '<strong>Warning:</strong> the markdown file cannot be loaded through the `file:` protocol. This file should be served through a webserver.'
             }
         };
 
@@ -27,9 +32,9 @@
 
         // Load markdown text
         if (global.location.protocol !== 'file:') {
-            this.$documentation.load('document.md', $.proxy(this._processMarkdown, this));
+            this.$documentation.load(this.config.md_src, $.proxy(this._processMarkdown, this));
         } else {
-            this.$loading.text(this.config.copy.warning_file_protocol);
+            this.$loading.html(this.config.copy.warning_file_protocol);
         }
 
         // Open all links within Documentation in a new window
@@ -74,14 +79,13 @@
         $('p').first().attr('class', 'lead');
         $('h1').attr('id', '').prependTo('header:first');
 
-        $('table').addClass('table table-bordered table-striped').wrap('<div class="large-container container-fluid" />');
 
         $('pre').addClass('prettyprint linenums');
         global.prettyPrint && prettyPrint();
 
         // Generate meta HTML as footer
         this.fillContent({
-            template_source: '#tmpl-footer',
+            template_source: this.config.templates.footer,
             append_to: this.config.el.documentation,
             context: copy // `copy` can be found in view.js
         });
@@ -90,29 +94,52 @@
     };
 
     Core.prototype._processTables = function() {
-        $('table').each(function(i, obj) {
+        $('table').each(function(table_id, obj) {
             var $obj = $(obj),
                 $th = $obj.find('thead').find('th'),
                 $tr = $obj.find('tbody').find('tr'),
                 labels = [],
-                entries = [];
+                entries = [],
+                entry = {};
 
-            $th.each(function(i, obj) {
-                labels[i] = $(obj).text();
-            });
+            $obj.addClass('table table-bordered table-striped table-id-'+table_id)
+                .wrap('<div class="large-container container-fluid" />');
 
-            $tr.each(function(row, obj) {
-                var entry = [];
-                entries[row] = {};
-
-                $(obj).find('td').each(function(i, obj) {
-                    entry[i] = $(obj).text();
+            if (!$obj.hasClass('all-devices')) {
+                $(obj).addClass('hidden-phone');
+                $th.each(function(i, obj) {
+                    labels[i] = $(obj).text();
                 });
 
-                $.each(labels, function(i, val) {
-                    console.log(val);
+                $tr.each(function(row, obj) {
+                    $(obj).find('td').each(function(i, obj) {
+                        var value = $(obj).html();
+                        entry['"'+labels[i]+'"'] = value;
+                    });
+
+                    entries.push(entry);
+
+                    // Need to empty the entry for the next value
+                    entry = {};
                 });
-            });
+
+                var ul = '<ul class="list-from-table visible-phone list-id-'+table_id+'" />';
+                $obj.after(ul);
+
+                $.each(entries, function(entry_id, entry) {
+                    var li = '<li><dl class="entry-id-'+entry_id+'"></dl></li>',
+                        dt, dd;
+
+                    $('.list-id-'+table_id).append(li);
+
+                    $.each(labels, function(i, label) {
+                        dt = '<dt>'+label+'</dt>';
+                        dd = '<dd>'+entry['"'+label+'"']+'</dd>';
+
+                        $('.entry-id-'+entry_id).append(dt + dd);
+                    });
+                });
+            }
         });
     };
 

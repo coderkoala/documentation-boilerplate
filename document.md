@@ -33,6 +33,8 @@ This is the continuation of the documentation if there needs to be a more detail
 
 ## Including Code Snippets
 
+### Third level header example with a code snippet below:
+
     <div class="example">
         <p>This is an example of including code snippets</p>
     </div>
