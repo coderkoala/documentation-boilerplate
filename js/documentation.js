@@ -30,9 +30,17 @@
     Core.prototype._init = function() {
         this._registerInstanceVariables();
 
+        var parser = document.createElement('a');
+        parser.href = global.location;
+
         // Load markdown text
         if (global.location.protocol !== 'file:') {
-            this.$documentation.load(this.config.md_src, $.proxy(this._processMarkdown, this));
+            if (parser.search.indexOf('?src') === -1 ) {
+                this.$documentation.load(this.config.md_src, $.proxy(this._processMarkdown, this));
+            } else {
+                var src = parser.search.replace('?src=','').replace('.md', '');
+                this.$documentation.load(src+'.md', $.proxy(this._processMarkdown, this));
+            }
         } else {
             this.$loading.html(this.config.copy.warning_file_protocol);
         }
@@ -110,11 +118,6 @@
                 entry = {};
 
             var next = obj.nextSibling;
-
-            console.log($(obj.nextSibling));
-            if ($(obj.nextSibling).is('p')) {
-                $(obj.nextSibling).wrap('<div class="main-container container-fluid />');
-            }
 
             $obj.addClass('table table-bordered table-striped table-id-'+table_id)
                 .wrap('<div class="large-container container-fluid" />');

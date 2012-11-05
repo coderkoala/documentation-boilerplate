@@ -5,11 +5,11 @@ _Highlighted Text_ with Title of Document
 
 This is the leading introduction for the documentation. It should not be longer than three to four sentances. This boilerplate is an easy way to create technical documentation using markdown. It utilizes the styles from Bootcamp.
 
-This is the continuation of the documentation if there needs to be a more detailed explanation of the purpose of this document as well 
+This is the continuation of the documentation if there needs to be a more detailed explanation of the introduction. The `index` file that is packaged with this boilerplate must be served from a webserver since it uses `$.load` to import the `document.md` markdown file.
 
-## Table Example
+## Tables
 
-This is an example of a table. The first table will be visible on all devices because it has the class `all-devices`. The second table will be converted into an unordered list based on key-value parings using the information within the table. `<thead>` and `<tbody>` elements are required.
+This is an example of a table. The first table will be visible on all devices because it has the class `all-devices`. The second table will be converted into an unordered list based on key-value parings using the information within the table. `<thead>` and `<tbody>` elements are therefore required.
 
 <table class="all-devices">
     <thead>
@@ -65,8 +65,28 @@ Re-size the browser window to see the table respond to the limited width.
         <p>This is an example of including code snippets</p>
     </div>
 
+## Other elements
+
+### Ordered Lists
+
+- This is an unordered list
+- This is the second item
+    - This is an unordered list within an unordered list
+    - Just like inception
+- Back to the first level
+
+### Unordered Lists
+
+1. This is an ordered list
+1. This is the second item
+    1. More inception
+        - An unordered list within an ordered list
+        - The world will explode
+    1. And one last time
+1. That's enough
+
 ## References
 
-- Reference item one
+- [Markdown Syntax](http://daringfireball.net/projects/markdown/syntax)
 - Reference item two
 
