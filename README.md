@@ -3,7 +3,7 @@ Documentation Boilerplate
 
 ## Introduction
 
-A simple solution that uses markdown and Bootcamp to create a neutrally aesthetic, mobile-optimized and content-focused document.
+A simple solution that uses markdown to create a neutrally aesthetic, mobile-optimized and content-focused document.
 
 ## Instructions
 
