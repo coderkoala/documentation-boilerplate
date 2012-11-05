@@ -5,6 +5,8 @@ Documentation Boilerplate
 
 A simple solution that uses markdown to create a neutrally aesthetic, mobile-optimized and content-focused document.
 
+[Demo](http://teddyhwang.github.com/documentation-boilerplate/) | [Demo with another markdown file](http://teddyhwang.github.com/documentation-boilerplate/?src=example)
+
 ## Instructions
 
 - Edit `document.md` for your main content or create a new markdown file. Pass in the source of the markdown file by calling it in the query of the url: `/?src=[MARKDOWN FILENAME]`
