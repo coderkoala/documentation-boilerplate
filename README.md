@@ -5,7 +5,9 @@ Documentation Boilerplate
 
 A simple solution that uses markdown to create a neutrally aesthetic, mobile-optimized and content-focused document.
 
-[Demo](http://teddyhwang.github.com/documentation-boilerplate/) | [Demo with another markdown file](http://teddyhwang.github.com/documentation-boilerplate/?src=example)
+[Demo](http://teddyhwang.github.com/documentation-boilerplate/) ([Markdown source](http://teddyhwang.github.com/documentation-boilerplate/document.md))
+
+[Demo with another markdown file](http://teddyhwang.github.com/documentation-boilerplate/?src=example) ([Markdown source](http://teddyhwang.github.com/documentation-boilerplate/example.md))
 
 ## Instructions
 
