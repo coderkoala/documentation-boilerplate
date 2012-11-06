@@ -64,14 +64,10 @@ a:hover {
   color: #00405b;
 }
 .container-fluid {
-  margin: 0 auto 0px;
-}
-.main-container {
+  margin: 0 auto;
   max-width: 800px;
-  margin-left: auto;
-  margin-right: auto;
 }
-.large-container {
+.container-fluid.large-container {
   max-width: 1000px;
 }
 #introduction {
