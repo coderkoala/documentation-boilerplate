@@ -80,7 +80,11 @@
             var id = $(obj).attr('id');
 
             $(obj).attr('id', '');
+<<<<<<< HEAD
             $set.wrapAll('<div class="main-container container-fluid" id="'+id+'" />');
+=======
+            $set.wrapAll('<div class="container-fluid" id="'+id+'" />');
+>>>>>>> master
         });
 
         $('h2').wrap('<header />');
@@ -104,7 +108,11 @@
 
     Core.prototype._cleanUpMarkdown = function() {
         this.$documentation.find('> p, > ul, > ol, > blockquote, > h3, > h4, > h5, > h6').each(function(i, obj) {
+<<<<<<< HEAD
             $(obj).wrap('<div class="main-container container-fluid" />');
+=======
+            $(obj).wrap('<div class="container-fluid" />');
+>>>>>>> master
         });
     };
 
