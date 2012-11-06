@@ -3,11 +3,7 @@ _Highlighted Text_ with Title of Document
 
 ## Introduction
 
-<<<<<<< HEAD
-This is the leading introduction for the documentation. It should not be longer than three to four sentances. This boilerplate is an easy way to create technical documentation using markdown. It utilizes the styles from Bootcamp.
-=======
 This is the leading introduction for the documentation. It should not be longer than three to four sentances. This boilerplate is an easy way to create technical documentation using markdown. It utilizes the styles from Bootstrap.
->>>>>>> master
 
 This is the continuation of the documentation if there needs to be a more detailed explanation of the introduction. The `index` file that is packaged with this boilerplate must be served from a webserver since it uses `$.load` to import the `document.md` markdown file.
 
