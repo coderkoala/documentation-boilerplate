@@ -51,6 +51,7 @@ body {
   margin: 0 auto;
   border: solid 1px rgba(0, 0, 0, 0.45);
   border-bottom: solid 2px rgba(0, 0, 0, 0.45);
+  padding-top: 20px;
 }
 ul,
 ol,
@@ -69,9 +70,6 @@ a:hover {
 }
 .container-fluid.large-container {
   max-width: 1000px;
-}
-#introduction {
-  padding-top: 20px;
 }
 #introduction .lead {
   font-size: 21px;
