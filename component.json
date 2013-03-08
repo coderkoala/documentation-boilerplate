@@ -1,0 +1,13 @@
+{
+  "name": "Documentation Boilerplate",
+  "version": "0.1.0",
+  "dependencies": {
+    "bootstrap": "*",
+    "jquery": "~1.9.1",
+    "modernizr": "*",
+    "requirejs": "*",
+    "almond": "*",
+    "underscore": "*",
+    "showdown": "git://github.com/teddyhwang/showdown.git"
+  }
+}

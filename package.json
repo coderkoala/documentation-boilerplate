@@ -1,0 +1,12 @@
+{
+  "name": "documentation-boilerplate",
+  "version": "0.1.0",
+  "description": "Documentation Boilerplat",
+  "author": "Teddy Hwang",
+  "devDependencies": {
+    "grunt": "~0.4.0",
+    "grunt-text-replace": "*",
+    "grunt-contrib-clean": "*",
+    "grunt-contrib-copy": "*"
+  }
+}

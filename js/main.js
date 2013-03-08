@@ -1,40 +1,31 @@
-requirejs.config({
+require.config({
+
+    baseUrl: 'js/',
+
+    waitSeconds: 30,
+
+    paths: {
+        // jQuery
+        'jquery'                    : '../components/jquery/jquery',
+        'almond'                    : '../components/almond/almond',
+        'modernizr'                 : '../components/modernizr/modernizr',
+        'underscore'                : '../components/underscore/underscore',
+
+        // Third Party Plugins
+        'showdown'                  : '../components/showdown/showdown',
+
+        'documentation'             : 'documentation'
+    },
+
     shim: {
-        'documentation': {
-            deps: [
-                '../lib/jquery/jquery-1.8.2.min',
-                '../lib/bootstrap/js/bootstrap.min',
-                '../lib/prettify/js/prettify',
-                '../lib/handlebars/handlebars-1.0.rc.1',
-                '../lib/showdown/showdown',
-                'view'
-            ],
-            exports: 'Documentation'
-        },
-        '../lib/bootstrap.min': {
-            deps: [
-                '../lib/jquery/jquery-1.8.2.min'
-            ]
+
+        underscore: {
+            exports: '_'
         }
     }
-});
-
-require([
-    'documentation',
-    '../lib/jquery/jquery-1.8.2.min',
-    '../lib/prettify/js/prettify',
-    '../lib/bootstrap/js/bootstrap.min',
-    '../lib/handlebars/handlebars-1.0.rc.1',
-    '../lib/showdown/showdown',
-    'view'
-], function() {
-
-    var global  = this; // in context to the browser `this` is `window`
-
-    var $       = global.$;
-
-    $(function() {
-        var documentation = new Documentation.core();
-    });
 
 });
+
+require(['modernizr']);
+require(['documentation']);
+

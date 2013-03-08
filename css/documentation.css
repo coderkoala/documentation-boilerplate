@@ -1,8 +1,6 @@
-@import "../lib/bootstrap/css/bootstrap.min.css";
+@import "../components/bootstrap/docs/assets/css/bootstrap.css";
 
-@import "../lib/bootstrap/css/bootstrap-responsive.min.css";
-
-@import "../lib/prettify/css/prettify.css";
+@import "../components/bootstrap/docs/assets/css/bootstrap-responsive.css";
 .clearfix {
   *zoom: 1;
 }
@@ -86,13 +84,13 @@ h1 em {
   color: #0088c1;
   font-style: normal;
 }
-h2 {
+h3 {
   border-bottom: solid 1px rgba(0, 0, 0, 0.2);
   padding-bottom: 3px;
   text-transform: uppercase;
   font-size: 22px;
 }
-h2 .double-underline {
+h3 .double-underline {
   border-bottom: solid 1px rgba(0, 0, 0, 0.2);
   display: block;
 }
