@@ -12,13 +12,13 @@ require.config({
         'underscore'                : '../components/underscore/underscore',
 
         // Third Party Plugins
+        'prettify'                  : '../components/bootstrap/docs/assets/js/google-code-prettify/prettify',
         'showdown'                  : '../components/showdown/showdown',
 
         'documentation'             : 'documentation'
     },
 
     shim: {
-
         underscore: {
             exports: '_'
         }

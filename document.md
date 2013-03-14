@@ -87,6 +87,7 @@ Re-size the browser window to see the table respond to the limited width.
 
 ## References
 
-- [Markdown Syntax](http://daringfireball.net/projects/markdown/syntax)
+- [Markdown Syntax](http://daringfireball.net/projects/markdown/syntax) - all external links will open in a new window
+- [Link to another markdown file](?src=example) - shouldn't open in a new window
 - Reference item two
 

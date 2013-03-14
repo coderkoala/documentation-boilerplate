@@ -2,12 +2,14 @@ define(
     [
         'jquery',
         'underscore',
-        'showdown'
+        'showdown',
+        'prettify'
     ],
     function(
         $,
         _,
-        __showdown__
+        __showdown__,
+        __prettify__
     ) {
 
         var Documentation = function(options) {
@@ -90,7 +92,7 @@ define(
 
 
             $('pre').addClass('prettyprint linenums');
-            // window.prettyPrint && prettyPrint();
+            window.prettyPrint && prettyPrint();
 
             this._processTables();
             this._cleanUpMarkdown();
@@ -155,11 +157,17 @@ define(
         };
 
         Documentation.prototype.targetBlank = function(evt) {
-            evt.preventDefault();
-
             var url = $(evt.currentTarget).attr('href');
+            var urlParser = document.createElement('a'),
+                parser = document.createElement('a');
 
-            window.open(url);
+            urlParser.href = url;
+            parser.href = window.location;
+
+            if (urlParser.hostname != parser.hostname) {
+                evt.preventDefault();
+                window.open(url);
+            }
         };
 
         $(function() {
