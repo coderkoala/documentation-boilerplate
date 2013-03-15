@@ -48,7 +48,7 @@ define(
                 this.$loading.html(this.config.copy.warning_file_protocol);
             }
 
-            // Open all links within Documentation in a new window
+            // Open all outbound links within Documentation in a new window
             this.$documentation.on('click', 'a', $.proxy(this.targetBlank, this));
         };
 

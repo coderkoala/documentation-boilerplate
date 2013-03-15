@@ -14,7 +14,10 @@ module.exports = function(grunt) {
         less: {
             development: {
                 files: {
-                    'css/documentation.css': 'less/documentation.less'
+                    'css/documentation.min.css': 'less/documentation.less'
+                },
+                options: {
+                    yuicompress: true
                 }
             }
         },
@@ -71,6 +74,8 @@ module.exports = function(grunt) {
     // Build task
     grunt.registerTask('build', 'Build documentation assets', function() {
         grunt.task.run([
+            'compile-less',
+            'compile-js'
         ]);
     });
 
